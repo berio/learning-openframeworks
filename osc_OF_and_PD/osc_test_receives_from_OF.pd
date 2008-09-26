@@ -1,0 +1,73 @@
+#N canvas 230 64 771 574 10;
+#X floatatom 49 376 5 0 0 0 x - -;
+#X obj 227 143 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 103 508 dac~;
+#X obj 49 415 osc~;
+#X obj 49 479 *~ 0.4;
+#X obj 143 478 *~ 0.4;
+#X obj 103 335 vsl 15 128 0 1 0 0 empty empty vol 0 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 143 433 osc~;
+#X obj 49 394 + 150;
+#X obj 143 412 + 150;
+#X obj 248 126 dumpOSC 12345;
+#X floatatom 143 394 5 0 0 0 y - -;
+#X floatatom 309 362 5 0 0 1 m.addIntArg(_x_) - -;
+#X floatatom 366 380 5 0 0 1 m.addIntArg(_y_) - -;
+#X obj 248 189 unpack f f s f;
+#X floatatom 248 211 5 0 0 1 m.addIntArg(_1_) - -;
+#X floatatom 275 228 5 0 0 1 m.addFloatArg(_3.5f_) - -;
+#X symbolatom 302 246 10 0 0 1 m.addStringArg(_"hello"_) - -;
+#X floatatom 329 264 15 0 0 1 m.addFloatArg(_ofGetElapsedTimef()_)
+- -;
+#X text 341 189 testApp::keyPressed;
+#X obj 309 339 unpack f f;
+#X text 379 339 testApp::mouseMoved;
+#X obj 385 433 unpack s;
+#X symbolatom 385 455 10 0 0 1 m.addStringArg(_"down"_)__m.addStringArg(_"up"_)
+- -;
+#X obj 248 162 OSCroute /test /mouse;
+#X obj 309 314 OSCroute /position /button;
+#X text 446 433 testApp::mousePressed \, testApp::mouseReleased;
+#X text 192 190 /test ->;
+#X text 245 313 /mouse ->;
+#X text 193 338 /mouse/position ->;
+#X text 279 433 /mouse/button ->;
+#X text 160 126 port 12345 ->;
+#X text 97 292 synth;
+#X text 30 19 PD patch for the OpenFrameworks example "oscSenderExample"
+;
+#X text 29 27 __________________________________________________________
+;
+#X text 30 47 This PD patch refers to the OSC example "oscSenderExample"
+from the library OpenFrameworks. This PD patch is receiving messages
+form OpenFrameworks.;
+#X text 513 47 Do whatever you want with this patch;
+#X text 511 17 by Berio Molina. www.berio.alg-a.org;
+#X text 511 27 _____________________________________;
+#X connect 0 0 8 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 2 1;
+#X connect 6 0 5 1;
+#X connect 6 0 4 1;
+#X connect 7 0 5 0;
+#X connect 8 0 3 0;
+#X connect 9 0 7 0;
+#X connect 10 0 1 0;
+#X connect 10 0 24 0;
+#X connect 11 0 9 0;
+#X connect 12 0 0 0;
+#X connect 13 0 11 0;
+#X connect 14 0 15 0;
+#X connect 14 1 16 0;
+#X connect 14 2 17 0;
+#X connect 14 3 18 0;
+#X connect 20 0 12 0;
+#X connect 20 1 13 0;
+#X connect 22 0 23 0;
+#X connect 24 0 14 0;
+#X connect 24 1 25 0;
+#X connect 25 0 20 0;
+#X connect 25 1 22 0;
